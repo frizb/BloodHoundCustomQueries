@@ -1,4 +1,4 @@
-# BloodHoundCustomQueries
+# BloodHound Custom Queries
 List of Bloodhound Custom Queries which I have found to be handy on engagements.
 
 Sample user list content:
