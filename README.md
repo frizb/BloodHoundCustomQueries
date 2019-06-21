@@ -130,3 +130,40 @@ optional arguments:
   -serverurl SERVERURL  Neo4j server URL (default: bolt://localhost:7687)
 Please specify the -userlist parameter and the -group parameter
 ```
+
+## Computers in the environment whose name contains
+This Python script can be used to generate lists of computers or dump data from Bloodhound in a table form (CSV).  Sometimes it nice to just use excel to parse through data for reporting and cross referencing. 
+```
+usage: GetComputerListContains.py [-h] [-contains CONTAINS] [-csv CSV]
+                                  [-delim DELIM] [-printresults] [-isenabled]
+                                  [-isowned] [-isadmin] [-issensitive]
+                                  [-ishighvalue] [-isunconstraineddelegation]
+                                  [-isdontreqpreauth] [-allthedata]
+                                  [-username USERNAME] [-password PASSWORD]
+                                  [-serverurl SERVERURL]
+
+Generate a list of computers from Bloodhound that contain a specific string
+and exports the list as a csv. This script can also optionally add additional
+properties to the CSV results.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -contains CONTAINS    A string that the computer contains
+  -csv CSV              The CSV file to export containing the results
+                        (default: ComputerList.csv)
+  -delim DELIM          CSV Delimiter (default: ,)
+  -printresults         Also prints the results to the console
+  -isenabled            Only output enabled computers
+  -isowned              Only output Owned computers
+  -isadmin              Only output Admin Count computers
+  -issensitive          Only output sensitive computers
+  -ishighvalue          Only output high value computers
+  -isunconstraineddelegation
+                        Only output computers with unconstrained delegation
+  -isdontreqpreauth     Only output computers that do not require preauth
+  -allthedata           Adds all the data columns from BloodHound to the CSV
+                        output
+  -username USERNAME    Neo4j username (default: neo4j)
+  -password PASSWORD    Neo4j password (default: BloodHound)
+  -serverurl SERVERURL  Neo4j server URL (default: bolt://localhost:7687)
+```
