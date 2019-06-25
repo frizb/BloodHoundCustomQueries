@@ -48,8 +48,8 @@ def match_users_from_list(tx, userlist, where):
     input_file = open(userlist, "r")
     output_file = open(args.csv, "w")
     if args.allthedata:  # Create headers
-        output_file.write("Name"+args.delim+"Display Name"+args.delim+"Domain"+args.delim+"Enabled"+args.delim+"Owned"+
-                          args.delim+"Admin Count"+args.delim+"Sensitive"+args.delim+"High Value"+
+        output_file.write("Name"+args.delim+"Display Name"+args.delim+"Domain"+args.delim+"Password"+args.delim+"Title"+
+                          args.delim+"Enabled"+args.delim+"Owned"+args.delim+"Admin Count"+args.delim+"Sensitive"+args.delim+"High Value"+
                           args.delim+"Do Not Require Preauth"+args.delim+"Has SPN"+args.delim+"Password Last Set"+
                           args.delim+"Last Login"+args.delim+"SID"+args.delim+"Email"+args.delim+"Description"+args.delim+"Notes"+"\r")
     records_found = 0
@@ -72,6 +72,14 @@ def process_records(records, output_file):
             else: this_result += args.delim
             if 'domain' in record[0]._properties:
                 this_result += args.delim+record[0]._properties[u'domain']
+            else:
+                this_result += args.delim
+            if 'userpassword' in record[0]._properties:
+                this_result += args.delim+record[0]._properties[u'userpassword']
+            else:
+                this_result += args.delim
+            if 'title' in record[0]._properties:
+                this_result += args.delim+record[0]._properties[u'title']
             else:
                 this_result += args.delim
             if 'enabled' in record[0]._properties:
