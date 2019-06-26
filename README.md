@@ -12,6 +12,56 @@ You will need to install neo4j in python 2.7 to run these tools:
 ```
 pip install neo4j
 ```
+## Bloodhound User CSV Query Dump
+This will create a CSV file from a BloodHound database and run each query that populates information in the Node Info table such as:
+* Sibling Objects in the same OU
+* Reachable High Value Targets
+* Effective Inbound GPOs
+* First Degree Group Membership
+* Unrolled Group Membership
+* First Degree Local Admin
+* Group Delegated Local Admin
+* Derivative Local Admin Rights
+* First Degree RDP
+* Group Delegated RDP
+* First Degree DCOM
+* Group Delegated DCOM
+* Constrained Delegation Privleges
+
+**Warning** this takes a LOONG time to run against a large dataset but create a great view of the Powerful Bloodhound data for further exploitation and reporting. 
+
+```
+usage: GetUsers.py [-h] [-contains CONTAINS] [-csv CSV] [-userlist USERLIST]
+                   [-delim DELIM] [-printresults] [-isenabled] [-isowned]
+                   [-isadmin] [-issensitive] [-ishighvalue] [-ishasspn]
+                   [-isdontreqpreauth] [-username USERNAME]
+                   [-password PASSWORD] [-serverurl SERVERURL]
+
+Generate a csv list of users from Bloodhound that contains all the data that
+appears under User Info table in Neo4j. Flattens out the Bloodhound Neo4J data
+into a large data table.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -contains CONTAINS    A string that the username contains (helpful for AD /
+                        SA / Service Account list generation)
+  -csv CSV              The CSV file to export containing the results
+                        (default: Users.csv)
+  -userlist USERLIST    Path to userlist to use in the query
+  -delim DELIM          CSV Delimiter (default: ,)
+  -printresults         Also prints the results to the console
+  -isenabled            Only output enabled accounts
+  -isowned              Only output Owned accounts
+  -isadmin              Only output Admin Count accounts
+  -issensitive          Only output sensitive accounts
+  -ishighvalue          Only output high value accounts
+  -ishasspn             Only output accounts that have spn
+  -isdontreqpreauth     Only output accounts that do not require preauth
+  -username USERNAME    Neo4j username (default: neo4j)
+  -password PASSWORD    Neo4j password (default: BloodHound)
+  -serverurl SERVERURL  Neo4j server URL (default: bolt://localhost:7687)
+```
+
 ## Generate a list of Users from Bloodhound
 This Python script can be used to generate lists of users (to be passed into the other scripts below) or dump data from Bloodhound in a table form (CSV).  Sometimes it nice to just use excel to parse through data for reporting and cross referencing. 
 ```
