@@ -12,7 +12,7 @@ You will need to install neo4j in python 2.7 to run these tools:
 ```
 pip install neo4j
 ```
-## Bloodhound User CSV Query Dump
+## GetUsers.py - Bloodhound User CSV Query Dump
 This will create a CSV file from a BloodHound database and run each query that populates information in the Node Info table such as:
 * Sibling Objects in the same OU
 * Reachable High Value Targets
@@ -62,7 +62,7 @@ optional arguments:
   -serverurl SERVERURL  Neo4j server URL (default: bolt://localhost:7687)
 ```
 
-## Generate a list of Users from Bloodhound
+## GetUserListContains.py - Generate a list of Users from Bloodhound
 This Python script can be used to generate lists of users (to be passed into the other scripts below) or dump data from Bloodhound in a table form (CSV).  Sometimes it nice to just use excel to parse through data for reporting and cross referencing. 
 ```
 usage: GetUserListContains.py [-h] [-contains CONTAINS] [-csv CSV]
@@ -101,7 +101,7 @@ optional arguments:
 
 ```
 
-## Users with Path to Domain Admin from a specified list
+## PathToDomainAdmin.py - Users with Path to Domain Admin from a specified list
 Check to see if anyone on a list of users can reach domain admin. Users and domains MUST BE ALLCAPS in the list file.
 ```
 From a list of BloodHound users (must be in uppercase format like:
@@ -141,7 +141,7 @@ Please specify the -userlist parameter.
 
 ```
 
-## Users from a list who have First Degree Local Admin rights in the AD environment
+## FirstDegreeLocalAdmins.py - Users from a list who have First Degree Local Admin rights in the AD environment
 Check to see if anyone on a list of users can reach domain admin. Users and domains MUST BE ALLCAPS in the list file.
 
 ```
@@ -162,7 +162,7 @@ Please specify the -userlist parameter.
 ```
 
 
-## Users from a list who are a member of a Group
+## GroupMembers.py - Users from a list who are a member of a Group
 Determine which users from a list are a member of a specific group.
 ```
 From a list of BloodHound users (must be in uppercase format like:
@@ -181,7 +181,7 @@ optional arguments:
 Please specify the -userlist parameter and the -group parameter
 ```
 
-## Computers in the environment whose name contains
+## GetComputersListContains.py - Computers in the environment whose name contains
 This Python script can be used to generate lists of computers or dump data from Bloodhound in a table form (CSV).  Sometimes it nice to just use excel to parse through data for reporting and cross referencing. 
 ```
 usage: GetComputerListContains.py [-h] [-contains CONTAINS] [-csv CSV]
