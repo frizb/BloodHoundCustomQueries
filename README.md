@@ -12,7 +12,7 @@ You will need to install neo4j in python 2.7 to run these tools:
 ```
 pip install neo4j
 ```
-## Users with Path to Domain Admin from a specified list
+## Generate a list of Users from Bloodhound
 This Python script can be used to generate lists of users (to be passed into the other scripts below) or dump data from Bloodhound in a table form (CSV).  Sometimes it nice to just use excel to parse through data for reporting and cross referencing. 
 ```
 usage: GetUserListContains.py [-h] [-contains CONTAINS] [-csv CSV]
