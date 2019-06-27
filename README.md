@@ -1,12 +1,5 @@
 # BloodHound Custom Queries
-List of Bloodhound Custom Queries which I have found to be handy on engagements.
-
-Sample user list content:
-```
-USER@DOMAIN.COM
-USER2@DOMAIN.COM
-USER3@DOMAIN.COM
-```
+Python Powered Bloodhound Custom Queries which I have found to be handy on engagements and for reporting purposes.
 
 You will need to install neo4j in python 2.7 to run these tools:
 ```
@@ -60,6 +53,14 @@ optional arguments:
   -username USERNAME    Neo4j username (default: neo4j)
   -password PASSWORD    Neo4j password (default: BloodHound)
   -serverurl SERVERURL  Neo4j server URL (default: bolt://localhost:7687)
+```
+
+A user string contains statement or a list of users to query can be optionally provided, but by default it will query all users. 
+The script expect the user input format to look like this:
+```
+USER@DOMAIN.COM
+USER2@DOMAIN.COM
+USER3@DOMAIN.COM
 ```
 
 ## GetUserListContains.py - Generate a list of Users from Bloodhound
