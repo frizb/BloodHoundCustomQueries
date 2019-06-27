@@ -228,7 +228,7 @@ def process_records(records, output_file):
         else:
             this_result += args.delim
         if 'title' in record[0]._properties:
-            this_result += args.delim+record[0]._properties[u'title']
+            this_result += args.delim+record[0]._properties[u'title'].replace("\n"," ").replace("\r", " ").replace(","," ")
         else:
             this_result += args.delim
         if 'enabled' in record[0]._properties:
