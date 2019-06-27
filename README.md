@@ -21,7 +21,7 @@ This will create a CSV file from a BloodHound database and run each query that p
 * Group Delegated DCOM
 * Constrained Delegation Privleges
 
-**Warning** this takes a LOONG time to run against a large dataset but create a great view of the Powerful Bloodhound data for further exploitation and reporting. 
+**Warning** this takes a LOONG time (2+ hours in some cases) to run against a large dataset but create a great view of the Powerful Bloodhound data for further exploitation and reporting. 
 
 ```
 usage: GetUsers.py [-h] [-contains CONTAINS] [-csv CSV] [-userlist USERLIST]
