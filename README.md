@@ -163,23 +163,27 @@ Please specify the -userlist parameter.
 ```
 
 
-## GroupMembers.py - Users from a list who are a member of a Group
+## GroupMembers.py - Get all the members of a Group to a CSV file or Check Users from a list to see if they are a member of a Group
 Determine which users from a list are a member of a specific group.
 ```
+usage: GroupMembers.py [-h] [-userlist USERLIST] [-group GROUP] [-csv CSV]
+                       [-username USERNAME] [-password PASSWORD]
+                       [-serverurl SERVERURL]
+
 From a list of BloodHound users (must be in uppercase format like:
 USER@DOMAIN.COM) this script will check which users are members of a specific
-Group and exports the list as a csv.
+Group and exports the list. Or alternatively you can specify just a group and
+get a list of all members as a csv.
 
 optional arguments:
   -h, --help            show this help message and exit
-  -userlist USERLIST    Path to userlist to use in the query
+  -userlist USERLIST    Path to userlist file to use in the query
   -group GROUP          Name of the group in the DC
   -csv CSV              The CSV file to export containing the results
                         (default: GroupMembers.csv)
   -username USERNAME    Neo4j username (default: neo4j)
   -password PASSWORD    Neo4j password (default: BloodHound)
   -serverurl SERVERURL  Neo4j server URL (default: bolt://localhost:7687)
-Please specify the -userlist parameter and the -group parameter
 ```
 
 ## GetComputersListContains.py - Computers in the environment whose name contains
@@ -214,6 +218,34 @@ optional arguments:
   -isdontreqpreauth     Only output computers that do not require preauth
   -allthedata           Adds all the data columns from BloodHound to the CSV
                         output
+  -username USERNAME    Neo4j username (default: neo4j)
+  -password PASSWORD    Neo4j password (default: BloodHound)
+  -serverurl SERVERURL  Neo4j server URL (default: bolt://localhost:7687)
+```
+
+
+## ComputerAdministrators.py - List all administrators for a computer on DC using BloodHound
+This Python script can be used to generate lists of users and groups or dump data from Bloodhound in a table form (CSV).  
+
+```
+usage: ComputerAdministrators.py [-h] [-computername COMPUTERNAME]
+                                 [-computerlist COMPUTERLIST] [-csv CSV]
+                                 [-username USERNAME] [-password PASSWORD]
+                                 [-serverurl SERVERURL]
+
+Provides a list of administrator and admin groups for a specific Computer or
+list of computers and output to CSV. Appends any labels to the CSV and also if
+the account is enabled.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -computername COMPUTERNAME
+                        Name of the computer in the DC (EX. CORP-
+                        DC01.TEST.LOCAL)
+  -computerlist COMPUTERLIST
+                        Path to the computer list file to use in the query.
+  -csv CSV              The CSV file to export containing the results
+                        (default: ComputerAdmins.csv)
   -username USERNAME    Neo4j username (default: neo4j)
   -password PASSWORD    Neo4j password (default: BloodHound)
   -serverurl SERVERURL  Neo4j server URL (default: bolt://localhost:7687)
